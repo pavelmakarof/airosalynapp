@@ -32,7 +32,7 @@ public class RubricsTest extends BasicBeforeAfter {
     CommonSteps commonSteps;
 
     @Before
-    public void setupClass() {
+    public void setupClass() throws InterruptedException {
         signInPage = new SignInPage(driver);
         dashboardPage = new DashboardPage(driver);
         organizationSettings = new OrganizationSettings(driver);
@@ -42,11 +42,13 @@ public class RubricsTest extends BasicBeforeAfter {
         commonSteps = new CommonSteps(driver);
         commonThings = new CommonThings(driver);
         commonSteps.goToDashboardPage(signInPage);
+        commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.assertEquals(orgName(), dashboardPage.orgname);
         commonSteps.move(dashboardPage.getAvatarDropdown());
         commonSteps.click(dashboardPage.getOrganizationSettingsButton());
         commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.click(organizationSettings.getRubricsButton());
+        Thread.sleep(15000);
         commonSteps.shouldNotSee(commonThings.getLoader());
     }
 
@@ -130,7 +132,7 @@ public class RubricsTest extends BasicBeforeAfter {
 //        commonSteps.click(rubricsPage.getCreateRubricPageCriteriaOneDescription());
 //        commonSteps.textInput(rubricsPage.getCreateRubricPageCriteriaOneDescription(),"TestCriteria");
         commonSteps.click(rubricsPage.getCreateRubricPageSaveButton());
-        commonSteps.textInput(rubricsPage.getSearchRubricNameField(), tempRubricName);
+        commonSteps.textInput(commonThings.getSearchNameField(), tempRubricName);
         commonSteps.assertTrue("Something go wrong in edit mode", tempRubricName.equals(commonSteps.getText(rubricsPage.getFirstRubricRecord())));
         commonSteps.click(rubricsPage.getFirstRubricRecord());
         commonSteps.shouldNotSee(commonThings.getLoader());
@@ -148,20 +150,24 @@ public class RubricsTest extends BasicBeforeAfter {
         commonSteps.click(commonThings.getDeleteRecordButton());
         commonSteps.click(rubricsPage.getConfirmDeleteOperation());
         commonSteps.shouldNotSee(commonThings.getLoader());
-        commonSteps.click(rubricsPage.getSearchRubricNameField());
-        commonSteps.textInput(rubricsPage.getSearchRubricNameField(), tempRubricName);
+        commonSteps.click(commonThings.getSearchNameField());
+        commonSteps.textInput(commonThings.getSearchNameField(), tempRubricName);
         commonSteps.shouldNotSee(rubricsPage.getFirstRubricRecord());
     }
 
+    /*refactoring - cannot find element getCancelDeleteOperation*/
     @Test
     @DisplayName("Admin Can Cancel Delete Inactive Rubric")
     public void adminCanCancelDeleteInactiveRubric005() throws InterruptedException {
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getInActiveItemStatusDropdown());
+        commonSteps.shouldNotSee(commonThings.getLoader());
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.hover(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.click(commonThings.getDeleteRecordButton());
         commonSteps.click(rubricsPage.getCancelDeleteOperation());
         commonSteps.shouldNotSee(commonThings.getLoader());
-        commonSteps.textInput(rubricsPage.getSearchRubricNameField(), tempRubricName);
+        commonSteps.textInput(commonThings.getSearchNameField(), tempRubricName);
         commonSteps.assertEquals(tempRubricName, rubricsPage.getFirstRubricRecord());
     }
 
@@ -178,14 +184,14 @@ public class RubricsTest extends BasicBeforeAfter {
     @Test
     @DisplayName("Admin Can Duplicate Active Rubric")
     public void adminCanDuplicateActiveRubric007() throws InterruptedException {
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getActiveItemInStatusDropdown());
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfActiveElements(), 0));
         commonSteps.hover(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfActiveElements(), 0));
         commonSteps.click(commonThings.getDuplicateRecordButton());
         Thread.sleep(2000);
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getStatusItemInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getStatusItemInStatusDropdown());
         Thread.sleep(2000);
         commonSteps.assertTrue("The name of duplicated rubric is incorrect", commonSteps.getText(rubricsPage.getFirstRubricRecord()).contains("Copy of " + tempRubricName));
     }
@@ -193,8 +199,8 @@ public class RubricsTest extends BasicBeforeAfter {
     @Test
     @DisplayName("Admin Cannot Edit/Delete Active Rubric")
     public void adminCanNotDeleteActiveRubric008() throws InterruptedException {
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getActiveItemInStatusDropdown());
         commonSteps.hover(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfActiveElements(), 0));
         Thread.sleep(1000);
         commonSteps.shouldSee(rubricsPage.getInactiveDeleteRubricButton());
@@ -204,8 +210,8 @@ public class RubricsTest extends BasicBeforeAfter {
     @Test
     @DisplayName("Admin can select several rubrics via checkboxes left-side of the records and delete it via three-dots menu")
     public void adminCanSelectSeveralRubrics009() throws InterruptedException {
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getInActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getInActiveItemStatusDropdown());
         commonSteps.shouldNotSee(commonThings.getLoader());
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.click(rubricsPage.getSelectFirstCheckbox());
@@ -222,8 +228,8 @@ public class RubricsTest extends BasicBeforeAfter {
     @Test
     @DisplayName("Admin can select several rubrics via checkboxes left-side of the records and cancel delete it via three-dots menu")
     public void adminCanSelectSeveralRubricsAndCancelDelete010() throws InterruptedException {
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getInActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getInActiveItemStatusDropdown());
         commonSteps.shouldNotSee(commonThings.getLoader());
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.click(rubricsPage.getSelectFirstCheckbox());
@@ -251,8 +257,8 @@ public class RubricsTest extends BasicBeforeAfter {
     @Test
     @DisplayName("Admin Cannot Delete Active Rubrics Via Three-Dots Delete Button")
     public void adminCannotDeleteActiveRubricsViaThreeDotsDeleteButton012() throws InterruptedException {
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getActiveItemInStatusDropdown());
         commonSteps.shouldNotSee(commonThings.getLoader());
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getListOfDisplayedRubricNames(), 0));
         commonSteps.shouldNotSee(commonThings.getLoader());
@@ -272,8 +278,8 @@ public class RubricsTest extends BasicBeforeAfter {
     @DisplayName("Admin Can Search By Tests Used In And Can Clear Results By Clear Filters Button")
     public void adminCanSearchByTestsUsedIn013() throws InterruptedException {
         String tempFirstRubricName = commonSteps.getText(rubricsPage.getFirstRubricRecord());
-        commonSteps.click(rubricsPage.getSearchSelectStatusDropdown());
-        commonSteps.click(rubricsPage.getActiveInStatusDropdown());
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getActiveItemInStatusDropdown());
         commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.click(rubricsPage.getTestsUsedInSortButton());
         commonSteps.shouldNotSee(commonThings.getLoader());
@@ -283,6 +289,20 @@ public class RubricsTest extends BasicBeforeAfter {
         commonSteps.click(commonThings.getClearFiltersButton());
         commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.assertEquals(tempFirstRubricName,rubricsPage.getFirstRubricRecord());
+    }
+
+    @Test
+    @DisplayName("Admin Can View Active Rubric")
+    public void adminCanViewActiveRubric014() throws InterruptedException {
+        commonSteps.click(commonThings.getSearchSelectStatusDropdown());
+        commonSteps.click(commonThings.getActiveItemInStatusDropdown());
+        commonSteps.shouldNotSee(commonThings.getLoader());
+        String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getListOfDisplayedRubricNames(), 0));
+        commonSteps.click(commonSteps.getElememtFromArray(rubricsPage.getListOfDisplayedRubricNames(), 0));
+        commonSteps.shouldNotSee(commonThings.getLoader());
+        commonSteps.shouldSee(rubricsPage.getActiveRubricPossiblePoints());
+        commonSteps.assertTrue("You cannot view active rubric for unknown reasons", tempRubricName.equals(commonSteps.getText(rubricsPage.getActiveRubricName())));
+        commonSteps.click(rubricsPage.getActiveRubricCloseButton());
 
     }
 }

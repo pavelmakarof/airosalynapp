@@ -21,6 +21,14 @@ public class CommonThings {
     @FindBy(xpath = ".//div[@class=\"loader_holder loader__block alert-show\"]")
     private WebElement loader;
 
+    @Name("Button Cancel on Page")
+    @FindBy(xpath = ".//button[contains(text(),\"Cancel\")]")
+    private WebElement cancelButton;
+
+    @Name("Button Save on Page")
+    @FindBy(xpath = ".//button[contains(text(),\"Save\")]")
+    private WebElement saveButton;
+
     @Name("Cancel Or No Button")
     @FindBy(xpath = ".//section//*[@id='idAlert']//a[@data-remodal-action=\"cancel\"]")
     private WebElement modalCancelButton;
@@ -57,16 +65,44 @@ public class CommonThings {
     @FindBy(xpath = ".//*[@class='ng-star-inserted']//span[.='clear filters']")
     public WebElement clearFiltersButton;
 
+    @Name("Search - Name Field")
+    @FindBy(xpath = ".//thead//input[@placeholder=\"Name\"]")
+    private WebElement searchNameField;
+
+    @Name("Search - Status Dropdown button")
+    @FindBy(xpath = ".//thead//select-filter/div/button[@data-toggle=\"dropdown\"]")
+    private WebElement searchSelectStatusDropdown;
+
+    @Name("Active item in Status drop-down")
+    @FindBy(xpath = ".//select-filter//a[contains(text(),'Active')]")
+    private WebElement activeItemInStatusDropdown;
+
+    @Name("Inactive item in Status drop-down")
+    @FindBy(xpath = ".//select-filter//a[contains(text(),\"Inactive\")]")
+    private WebElement inActiveItemStatusDropdown;
+
+    @Name("Status item in Status drop-down")
+    @FindBy(xpath = ".//select-filter//a[contains(text(),\"Status\")]")
+    private WebElement statusItemInStatusDropdown;
+
+    public WebElement getLoader() {
+        return loader;
+    }
+
+    public WebElement getCancelButton() {
+        return cancelButton;
+    }
+
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
+
     public WebElement getModalCancelButton() {
         return modalCancelButton;
     }
 
     public WebElement getModalConfirmButton() {
         return modalConfirmButton;
-    }
-
-    public WebElement getLoader() {
-        return loader;
     }
 
     public WebElement getDeleteRecordButton() {
@@ -97,4 +133,23 @@ public class CommonThings {
         return clearFiltersButton;
     }
 
+    public WebElement getSearchNameField() {
+        return searchNameField;
+    }
+
+    public WebElement getSearchSelectStatusDropdown() {
+        return searchSelectStatusDropdown;
+    }
+
+    public WebElement getActiveItemInStatusDropdown() {
+        return activeItemInStatusDropdown;
+    }
+
+    public WebElement getInActiveItemStatusDropdown() {
+        return inActiveItemStatusDropdown;
+    }
+
+    public WebElement getStatusItemInStatusDropdown() {
+        return statusItemInStatusDropdown;
+    }
 }

@@ -31,6 +31,10 @@ public class OrganizationSettings {
     @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Rubrics\"]")
     public WebElement rubricsButton;
 
+    @Name("Button \"Custom Scoring Scale\"")
+    @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Rubrics\"]")
+    public WebElement catButton;
+
     public WebElement getOrganizationSettingsTitle() {
         return organizationSettingsTitle;
     }
@@ -45,6 +49,10 @@ public class OrganizationSettings {
 
     public WebElement getRubricsButton() {
         return rubricsButton;
+    }
+
+    public WebElement getCatButton() {
+        return catButton;
     }
 
 

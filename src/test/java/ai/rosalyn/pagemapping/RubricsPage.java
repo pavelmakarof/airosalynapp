@@ -21,6 +21,18 @@ public class RubricsPage {
     @FindBy(xpath = ".//rubrics/div/div/div[1]/h1")
     private WebElement rubricsTitle;
 
+    @Name("View Rubric - Rubric name")
+    @FindBy(xpath = ".//app-rubric-grade-mode//div[contains(@class,'rubr-name')]")
+    private WebElement activeRubricName;
+
+    @Name("View Rubric - Possible Points Text")
+    @FindBy(xpath = ".//app-rubric-grade-mode//span[contains(text(),\"Possible Points\")]")
+    private WebElement activeRubricPossiblePoints;
+
+    @Name("View Rubric - Close Button")
+    @FindBy(xpath = ".//app-rubric-grade-mode//button[contains(text(),'Close')]")
+    private WebElement activeRubricCloseButton;
+
     @Name("Counter of displayed rubrics")
     @FindBy(xpath = ".//rubrics/div/div/div[1]/span")
     private WebElement counterOfDisplayingRubrics;
@@ -45,29 +57,29 @@ public class RubricsPage {
     @FindBy(xpath = ".//rubrics//thead//label")
     private WebElement selectAllCheckbox;
 
-    @Name("Search - Name Field")
-    @FindBy(xpath = ".//thead//input[@placeholder=\"Name\"]")
-    private WebElement searchRubricNameField;
+//    @Name("Search - Name Field")
+//    @FindBy(xpath = ".//thead//input[@placeholder=\"Name\"]")
+//    private WebElement searchRubricNameField;
 
     @Name("Search - Test Used In Field")
     @FindBy(xpath = ".//thead//input[@placeholder=\"Tests Used in\"]")
     private WebElement searchRubrictestsUsedInField;
 
-    @Name("Search - Status Dropdown button")
-    @FindBy(xpath = ".//thead//select-filter/div/button[@data-toggle=\"dropdown\"]")
-    private WebElement searchSelectStatusDropdown;
-
-    @Name("Active item in Status drop-down")
-    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Active']")
-    private WebElement activeInStatusDropdown;
-
-    @Name("Inactive item in Status drop-down")
-    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Inactive']")
-    private WebElement inActiveInStatusDropdown;
-
-    @Name("Status item in Status drop-down")
-    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Status']")
-    private WebElement statusItemInStatusDropdown;
+//    @Name("Search - Status Dropdown button")
+//    @FindBy(xpath = ".//thead//select-filter/div/button[@data-toggle=\"dropdown\"]")
+//    private WebElement searchSelectStatusDropdown;
+//
+//    @Name("Active item in Status drop-down")
+//    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Active']")
+//    private WebElement activeInStatusDropdown;
+//
+//    @Name("Inactive item in Status drop-down")
+//    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Inactive']")
+//    private WebElement inActiveInStatusDropdown;
+//
+//    @Name("Status item in Status drop-down")
+//    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/thead/tr/th[4]/ng2-smart-table-filter/div/select-filter/div/ul//a[text()='Status']")
+//    private WebElement statusItemInStatusDropdown;
 
     @Name("Create rubric page - title")
     @FindBy(xpath = ".//create-rubric/div/div[1]/div[1]")
@@ -203,11 +215,11 @@ public class RubricsPage {
     private WebElement tableOfRubrics;
 
     @Name("Confirm Delete Operation")
-    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table//tr[1]//*[@id='idAlert']/div/div/div/div[3]/div/a[2]")
+    @FindBy(xpath = ".//div/ng2-smart-table//tbody/tr[2]/td[5]//app-alert//a[contains(text(),'Delete')]")
     public WebElement confirmDeleteOperation;
 
     @Name("Cancel Delete Operation")
-    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table//tr[1]//*[@id='idAlert']/div/div/div/div[3]/div/a[1]")
+    @FindBy(xpath = ".//div/ng2-smart-table//tbody/tr[2]/td[5]//app-alert//a[contains(text(),'Cancel')]")
     public WebElement cancelDeleteOperation;
 
 
@@ -218,10 +230,6 @@ public class RubricsPage {
     @Name("Inactive Edit Rubric Button")
     @FindBy(xpath = ".//options-view-component/app-options/div//div/img[@src=\"assets/svg/edit_default.svg\"]")
     public WebElement inactiveEditRubricButton;
-
-    public List<WebElement> getListOfDisplayedRubricNames() {
-        return listOfDisplayedRubricNames;
-    }
 
     @Name("List Of Displayed Rubric Names")
     @FindBy(xpath = ".//tbody/tr/td//ancestor::*/td[2]//table-cell-view-mode/div/div")
@@ -269,41 +277,20 @@ public class RubricsPage {
         return cancelDeleteOperation;
     }
 
-//    @Name("Validation message")
-//    @FindBy(xpath = ".//app-control-error-message/div[@class='error-color ng-star-inserted']")
-//    public WebElement tagNameValidationMessage;
-//
-//    @Name("Cancel New Name Creation button")
-//    @FindBy(xpath = ".//ng2-st-actions/a/span[@aria-label='Cancel']/img")
-//    public WebElement cancelNewNameCreationButton;
-//
-//    @Name("Apply New Name Creation button")
-//    @FindBy(xpath = ".//ng2-st-actions[@class='create-cancel-right']/button/span/img")
-//    public WebElement applyNewNameCreationButton;
-//
-//    @Name("Active Update Tag Name Button")
-//    @FindBy(xpath = ".//ng2-st-tbody-create-cancel[@class='create-cancel-right']//button/span[@aria-label=\"Update\"]/img")
-//    public WebElement updateTagNameButton;
-//
-//    @Name("Erase search field - button cross")
-//    @FindBy(xpath = ".//img[@class='clear-input-img']")
-//    public WebElement clearInputButton;
-//
-//    @Name("GLOBAL - Cancel Delete Operation")
-//    @FindBy(xpath = ".//*[@id='idAlert']//a[@data-remodal-action=\"cancel\"]")
-//    public WebElement cancelDeleteOperation;
-//
-//    @Name("GLOBAL - Confirm Delete Operation")
-//    @FindBy(xpath = ".//*[@id='idAlert']//a[@data-remodal-action=\"confirm\"]")
-//    public WebElement confirmDeleteOperation;
-//
-//    @Name("No Search Results On Rubrics Page")
-//    @FindBy(xpath = ".//rubrics/div/ng2-smart-table/table/tbody/tr/td")
-//    public WebElement noSearchResultsOnRubricsPage;
-
-
     public WebElement getRubricsTitle() {
         return rubricsTitle;
+    }
+
+    public WebElement getActiveRubricName() {
+        return activeRubricName;
+    }
+
+    public WebElement getActiveRubricPossiblePoints() {
+        return activeRubricPossiblePoints;
+    }
+
+    public WebElement getActiveRubricCloseButton() {
+        return activeRubricCloseButton;
     }
 
     public WebElement getCounterOfDisplayingRubrics() {
@@ -330,29 +317,29 @@ public class RubricsPage {
         return selectAllCheckbox;
     }
 
-    public WebElement getSearchRubricNameField() {
-        return searchRubricNameField;
-    }
+//    public WebElement getSearchRubricNameField() {
+//        return searchRubricNameField;
+//    }
 
     public WebElement getSearchRubrictestsUsedInField() {
         return searchRubrictestsUsedInField;
     }
 
-    public WebElement getSearchSelectStatusDropdown() {
-        return searchSelectStatusDropdown;
-    }
+//    public WebElement getSearchSelectStatusDropdown() {
+//        return searchSelectStatusDropdown;
+//    }
 
-    public WebElement getActiveInStatusDropdown() {
-        return activeInStatusDropdown;
-    }
+//    public WebElement getActiveInStatusDropdown() {
+//        return activeInStatusDropdown;
+//    }
 
-    public WebElement getInActiveInStatusDropdown() {
-        return inActiveInStatusDropdown;
-    }
+//    public WebElement getInActiveInStatusDropdown() {
+//        return inActiveInStatusDropdown;
+//    }
 
-    public WebElement getStatusItemInStatusDropdown() {
-        return statusItemInStatusDropdown;
-    }
+//    public WebElement getStatusItemInStatusDropdown() {
+//        return statusItemInStatusDropdown;
+//    }
 
     public WebElement getCreateRubricPageTitle() {
         return createRubricPageTitle;
@@ -472,6 +459,10 @@ public class RubricsPage {
 
     public List<WebElement> getListOfInactiveRubrics() {
         return listOfInactiveRubrics;
+    }
+
+    public List<WebElement> getListOfDisplayedRubricNames() {
+        return listOfDisplayedRubricNames;
     }
 
     public WebElement getAdminCannotDeleteActiveRubric() {
