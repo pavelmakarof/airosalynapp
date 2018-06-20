@@ -18,7 +18,7 @@ public class CommonThings {
     }
 
     @Name("Loader")
-    @FindBy(xpath = ".//div[@class=\"loader_holder loader__block alert-show\"]")
+    @FindBy(xpath = ".//div/div/div[contains(@class,\"loader\")]")
     private WebElement loader;
 
     @Name("Button Cancel on Page")

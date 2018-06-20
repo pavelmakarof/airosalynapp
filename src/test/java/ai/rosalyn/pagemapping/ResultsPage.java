@@ -18,7 +18,7 @@ public class ResultsPage {
     }
 
     @FindBy(css = ".lh-title.mb2")
-    public WebElement resultsPageTitle;
+    private WebElement resultsPageTitle;
 
     public WebElement getResultsPageTitle(){return resultsPageTitle;}
 }

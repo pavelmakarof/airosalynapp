@@ -18,69 +18,69 @@ public class SubOrganizationPage {
 
     //"+Add Sub Organization" button on sub-organization management page
     @FindBy(css=".ml2")
-    public WebElement addNewSubOrgButton;
+    private WebElement addNewSubOrgButton;
 
     //"Sub Organization Name" field on Add new sub-organization page
     @FindBy(css="#organizationName")
-    public WebElement newSubOrgName;
+    private WebElement newSubOrgName;
 
     //"Description" field on Add new sub-organization page
     @FindBy(xpath=".//*[@id='subOrganizationDescription']")
-    public WebElement newSubOrgDescr;
+    private WebElement newSubOrgDescr;
 
     //"Submit" button on Add new sub-organization page
     @FindBy(xpath=".//app-organization-create/div[3]/form/div[3]/div/div/button")
-    public WebElement submitNewSubOrgButton;
+    private WebElement submitNewSubOrgButton;
 
     //"Cancel" button on Add new sub-organization page
     @FindBy(css=".items-start .ghost-btn")
-    public WebElement cancelNewSubOrgButton;
+    private WebElement cancelNewSubOrgButton;
 
     //"Back to list" button on Add new sub-organization page
     @FindBy(css=".link")
-    public WebElement backToSubOrgsListButton;
+    private WebElement backToSubOrgsListButton;
 
     @FindBy(css="[class=\"col-4 tl\"] .mb0")
-    public WebElement firstSubOrgName;
+    private WebElement firstSubOrgName;
 
     @FindBy(xpath=".//app-organization-list/div/main/div/div[1]/a/div[2]/p")
-    public WebElement firstSubOrgDescr;
+    private WebElement firstSubOrgDescr;
 
     @FindBy(css="#search-bar .ng-valid")
-    public WebElement searchField;
+    private WebElement searchField;
 
     @FindBy(xpath = ".//*[@id='search-bar']/button")
-    public WebElement applySearchButton;
+    private WebElement applySearchButton;
 
     @FindBy(css = "#userModal [clip-rule]")
-    public WebElement crossInModal;
+    private WebElement crossInModal;
 
     @FindBy(css=".text-danger.ng-star-inserted")
-    public WebElement validationMessageNameIsRequired;
+    private WebElement validationMessageNameIsRequired;
 
     @FindBy(css=".mb3:nth-child(1) .ng-star-inserted")
-    public WebElement validationMessageNameIsLong;
+    private WebElement validationMessageNameIsLong;
 
     @FindBy(css=".mb3+ .mb3 .ng-star-inserted")
-    public WebElement validationMessageDescriptionIsLong;
+    private WebElement validationMessageDescriptionIsLong;
 
     @FindBy(xpath = ".//app-organization-list/div/main/div[1]")
-    public WebElement noSearchResults;
+    private WebElement noSearchResults;
 
     @FindBy(xpath = ".//div[1]/div[1]/*[@id='menu1' and contains(@class,'states-bg')]")
-    public WebElement optionsButton;
+    private WebElement optionsButton;
 
     @FindBy(xpath = ".//main//*[@id='profile-options']/li[1]/a")
-    public WebElement viewOptionButton;
+    private WebElement viewOptionButton;
 
     @FindBy(xpath = ".//main//*[@id='profile-options']/li[2]/a")
-    public WebElement editOptionButton;
+    private WebElement editOptionButton;
 
     @FindBy(xpath = ".//app-general-layout/app-organization-view/div[1]/h1")
-    public WebElement viewSubOrgTitle;
+    private WebElement viewSubOrgTitle;
 
     @FindBy(xpath = ".//app-organization-edit/div[3]/form/div[3]/div/div/button")
-    public WebElement updateSubOrgButton;
+    private WebElement updateSubOrgButton;
 
     public WebElement getNewSubOrgName() {
         return newSubOrgName;

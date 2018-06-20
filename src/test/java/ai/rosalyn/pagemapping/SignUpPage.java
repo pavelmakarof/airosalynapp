@@ -20,6 +20,34 @@ public class SignUpPage {
         return neworgname;
     }
 
+    public String neworgpubl;
+
+    @FindBy(xpath = "/html//input[@id='organizationName']")
+    private WebElement neworgname;
+
+    @FindBy(xpath = "/html//input[@id='name']")
+    private WebElement firstName;
+
+    @FindBy(xpath = "/html//input[@id='surname']")
+    private WebElement lastName;
+
+    @FindBy(xpath = "/html//input[@id='email']")
+    private WebElement orgEmail;
+
+    @FindBy(xpath = "/html//input[@id='password']")
+    private WebElement orgPass;
+
+    @FindBy(css = ".states-opacity.db")
+    private WebElement signupButton;
+
+    @FindBy(css = ".w4")
+    private WebElement continueButton;
+
+    @FindBy(css = ".forgot_email")
+    private WebElement successSignUpText;
+
+
+
     public WebElement getFirstName() {
         return firstName;
     }
@@ -51,33 +79,5 @@ public class SignUpPage {
     public String getNeworgpubl() {
         return neworgpubl;
     }
-
-    @FindBy(xpath = "/html//input[@id='organizationName']")
-    public WebElement neworgname;
-
-    @FindBy(xpath = "/html//input[@id='name']")
-    public WebElement firstName;
-
-    @FindBy(xpath = "/html//input[@id='surname']")
-    public WebElement lastName;
-
-    @FindBy(xpath = "/html//input[@id='email']")
-    public WebElement orgEmail;
-
-    @FindBy(xpath = "/html//input[@id='password']")
-    public WebElement orgPass;
-
-    @FindBy(css = ".states-opacity.db")
-    public WebElement signupButton;
-
-    @FindBy(css = ".w4")
-    public WebElement continueButton;
-
-    @FindBy(css = ".forgot_email")
-    public WebElement successSignUpText;
-
-    public String neworgpubl;
-
-
 
 }

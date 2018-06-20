@@ -17,7 +17,7 @@ public class ScoringPage {
     }
 
     @FindBy(css = ".lh-title.mb2")
-    public WebElement scoringPageTitle;
+    private WebElement scoringPageTitle;
 
     public WebElement getScoringPageTitle(){return scoringPageTitle;}
 }

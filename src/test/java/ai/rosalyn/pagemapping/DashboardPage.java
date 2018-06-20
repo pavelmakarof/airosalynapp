@@ -1,6 +1,5 @@
 package ai.rosalyn.pagemapping;
 
-import ai.rosalyn.steps.CommonSteps;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,61 +17,61 @@ public class DashboardPage {
     }
 
     @FindBy(css = ".mb0.f5")
-    public WebElement orgname;
+    private WebElement orgname;
 
     @FindBy(css=".btnText")
-    public WebElement exportButton;
+    private WebElement exportButton;
 
     @FindBy(css="app-organization-picker [class=\"bg-white db pa3 grey-3 pointer ng-star-inserted\"]:nth-of-type(2) span")
-    public WebElement subOrg;
+    private WebElement subOrg;
 
     @FindBy(css=".lh-title")
-    public WebElement avatarDropdown;
+    private WebElement avatarDropdown;
 
     @FindBy(css="[class=\"db pa3 grey-3 states-bg ng-star-inserted\"]")
-    public WebElement organizationSettingsButton;
+    private WebElement organizationSettingsButton;
 
     @FindBy(css="[class] .pointer:nth-of-type(2) [class]")
-    public WebElement changePassword;
+    private WebElement changePassword;
 
     @FindBy(css = "[class] .pointer:nth-of-type(3) [class]")
-    public WebElement logout;
+    private WebElement logout;
 
     @FindBy(css = "#logOutConfirmModal .bg-brand")
-    public WebElement confirmLogout;
+    private WebElement confirmLogout;
 
     @FindBy(css = "#logOutConfirmModal .ghost-btn")
-    public WebElement cancelLogout;
+    private WebElement cancelLogout;
 
     @FindBy(css = ".tooltip--bottom")
-    public WebElement trialCounter;
+    private WebElement trialCounter;
 
     @FindBy(css=".email-not-verified")
-    public WebElement emailNotVerified;
+    private WebElement emailNotVerifiedBanner;
 
     @FindBy(css = "app-site-menu")
-    public WebElement hiddenMenu;
+    private WebElement hiddenMenu;
 
     @FindBy(css="app-site-menu div:nth-of-type(2) span")
-    public WebElement dashboardMenuItem;
+    private WebElement dashboardMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(3) span")
-    public WebElement itemsMenuItem;
+    private WebElement itemsMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(4) span")
-    public WebElement testsMenuItem;
+    private WebElement testsMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(5) span")
-    public WebElement scoringMenuItem;
+    private WebElement scoringMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(6) span")
-    public WebElement proctoringMenuItem;
+    private WebElement proctoringMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(7) span")
-    public WebElement resultsMenuItem;
+    private WebElement resultsMenuItem;
 
     @FindBy(css="app-site-menu div:nth-of-type(8) span")
-    public WebElement examineesMenuItem;
+    private WebElement examineesMenuItem;
 
     public WebElement getOrgname() {
         return orgname;
@@ -114,8 +113,8 @@ public class DashboardPage {
         return trialCounter;
     }
 
-    public WebElement getEmailNotVerified() {
-        return emailNotVerified;
+    public WebElement getEmailNotVerifiedBanner() {
+        return emailNotVerifiedBanner;
     }
 
     public WebElement getHiddenMenu() {

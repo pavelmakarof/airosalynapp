@@ -17,23 +17,23 @@ public class OrganizationSettings {
     }
 
     @FindBy(css=".dib.mb2")
-    public WebElement organizationSettingsTitle;
+    private WebElement organizationSettingsTitle;
 
     @Name("Button \"Sub-orgs\"")
     @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Sub-orgs\"]")
-    public WebElement subOrgsButton;
+    private WebElement subOrgsButton;
 
     @Name("Button \"Tags\"")
     @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Tags\"]")
-    public WebElement tagsButton;
+    private WebElement tagsButton;
 
     @Name("Button \"Rubrics\"")
     @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Rubrics\"]")
-    public WebElement rubricsButton;
+    private WebElement rubricsButton;
 
     @Name("Button \"Custom Scoring Scale\"")
     @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Rubrics\"]")
-    public WebElement catButton;
+    private WebElement catButton;
 
     public WebElement getOrganizationSettingsTitle() {
         return organizationSettingsTitle;

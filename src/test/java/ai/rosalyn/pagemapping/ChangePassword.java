@@ -17,19 +17,19 @@ public class ChangePassword {
     }
 
     @FindBy(css=".lh-title.mb2")
-    public WebElement titleChangePassword;
+    private WebElement titleChangePassword;
 
     @FindBy(css="[class=\"input w-100 ng-untouched ng-pristine ng-invalid\"]")
-    public WebElement emailforchangepass;
+    private WebElement emailforchangepass;
 
     @FindBy(css=".ghost-btn.bg-brand")
-    public WebElement submitButton;
+    private WebElement submitButton;
 
     @FindBy(css="[class=\"f5 lh-title mb3 w-100 tc\"]")
-    public WebElement successPage;
+    private WebElement successPage;
 
     @FindBy(css=".w4")
-    public WebElement okButton;
+    private WebElement okButton;
 
     public WebElement getTitleChangePassword() {
         return titleChangePassword;

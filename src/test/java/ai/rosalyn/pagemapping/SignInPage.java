@@ -17,16 +17,16 @@ public class SignInPage {
     }
 
     @FindBy(css = "#username")
-    public WebElement username;
+    private WebElement username;
 
     @FindBy(css = "[class=\"input w-100 ng-untouched ng-pristine ng-invalid\"]")
-    public WebElement userpass;
+    private WebElement userpass;
 
     @FindBy(css=".b-brand.db")
-    public WebElement signinbutton;
+    private WebElement signinbutton;
 
     @FindBy(css=".b-brand.mr3")
-    public WebElement getStartedButton;
+    private WebElement getStartedButton;
 
     public WebElement getUsername() {
         return username;

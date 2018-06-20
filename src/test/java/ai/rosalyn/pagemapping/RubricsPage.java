@@ -83,107 +83,107 @@ public class RubricsPage {
 
     @Name("Create rubric page - title")
     @FindBy(xpath = ".//create-rubric/div/div[1]/div[1]")
-    public WebElement createRubricPageTitle;
+    private WebElement createRubricPageTitle;
 
     @Name("Create rubric page - number of possible points")
     @FindBy(xpath = ".//create-rubric/div/div[1]/div[2]/span[1]")
-    public WebElement createRubricPageNumberPossiblePoints;
+    private WebElement createRubricPageNumberPossiblePoints;
 
     @Name("Create rubric page - Cancel Button")
     @FindBy(xpath = ".//create-rubric/div/div[1]/div[3]/div[1]/button")
-    public WebElement createRubricPageCancelButton;
+    private WebElement createRubricPageCancelButton;
 
     @Name("Create rubric page - Save Button")
     @FindBy(xpath = ".//create-rubric/div/div[1]/div[3]/div[2]/button")
-    public WebElement createRubricPageSaveButton;
+    private WebElement createRubricPageSaveButton;
 
     @Name("Create rubric page - Rubric Name Input")
     @FindBy(xpath = ".//create-rubric/div/div[2]/fieldset/input[@name=\"name\"]")
-    public WebElement createRubricPageRubricNameInput;
+    private WebElement createRubricPageRubricNameInput;
 
     @Name("Create rubric page - Validation Message - Empty name")
     @FindBy(xpath = ".//app-control-error-message/div")
-    public WebElement createRubricPageValidationMessageEmptyName;
+    private WebElement createRubricPageValidationMessageEmptyName;
 
     @Name("Create rubric page - Validation Message - Empty Table Fields")
     @FindBy(xpath = ".//create-rubric/div/div[2]/div/div/div/div[2]")
-    public WebElement createRubricPageValidationMessageEmptyTableFields;
+    private WebElement createRubricPageValidationMessageEmptyTableFields;
 
     @Name("Create rubric page - Add Level Button")
     @FindBy(xpath = ".//app-rubric-matrix//div[text()=\"+ Add Level\"]")
-    public WebElement createRubricPageAddLevelButton;
+    private WebElement createRubricPageAddLevelButton;
 
     @Name("Create rubric page - Add Criteria Button")
     @FindBy(xpath = ".//app-rubric-matrix//div[text()=\"+ Add Criteria\"]")
-    public WebElement createRubricPageAddCriteriaButton;
+    private WebElement createRubricPageAddCriteriaButton;
 
     @Name("Create rubric page - Levels And Criterias Description")
     @FindBy(xpath = ".//input[@formcontrolname=\"description\"]")
-    public List<WebElement> createRubricPagelevelAndCriteriaDescriptions;
+    private List<WebElement> createRubricPagelevelAndCriteriaDescriptions;
 
     @Name("Create rubric page - Level 1 Description")
     @FindBy(xpath = ".//app-rubric-matrix//div[2]//div[2]/div/div[1]//div/fieldset")
-    public WebElement createRubricPageLevelOneDescription;
+    private WebElement createRubricPageLevelOneDescription;
 
     @Name("Create rubric page - Level 2 Description")
     @FindBy(xpath = ".//app-rubric-matrix//div[3]//div[2]/div/div[1]//div/fieldset")
-    public WebElement createRubricPageLevelTwoDescription;
+    private WebElement createRubricPageLevelTwoDescription;
 
     @Name("Create rubric page - Level 3 Description")
     @FindBy(xpath = ".//app-rubric-matrix//div[4]//div[2]/div/div[1]//div/fieldset")
-    public WebElement createRubricPageLevelThreeDescription;
+    private WebElement createRubricPageLevelThreeDescription;
 
     @Name("Create rubric page - Level 4 Description")
     @FindBy(xpath = ".//app-rubric-matrix//div[5]//div[2]/div/div[1]//div/fieldset")
-    public WebElement createRubricPageLevelFourDescription;
+    private WebElement createRubricPageLevelFourDescription;
 
     @Name("Create rubric page - Level 5 Description")
     @FindBy(xpath = ".//app-rubric-matrix//div[6]//div[2]/div/div[1]//div/fieldset")
-    public WebElement createRubricPageLevelFiveDescription;
+    private WebElement createRubricPageLevelFiveDescription;
 
     @Name("Create rubric page - Levels ponts")
     @FindBy(xpath = ".//input[@formcontrolname=\"points\"]")
-    public List<WebElement> createRubricPageLevelPoints;
+    private List<WebElement> createRubricPageLevelPoints;
 
     @Name("Create rubric page - Level 1 Points")
     @FindBy(xpath = ".//app-rubric-matrix//div[2]//div[2]/div/div[1]//div/fieldset/input")
-    public WebElement createRubricPageLevelOnePoints;
+    private WebElement createRubricPageLevelOnePoints;
 
     @Name("Create rubric page - Level 2 Points")
     @FindBy(xpath = ".//app-rubric-matrix//div[3]//div[2]/div/div[2]//div/fieldset")
-    public WebElement createRubricPageLevelTwoPoints;
+    private WebElement createRubricPageLevelTwoPoints;
 
     @Name("Create rubric page - Level 3 Points")
     @FindBy(xpath = ".//app-rubric-matrix//div[4]//div[2]/div/div[2]//div/fieldset")
-    public WebElement createRubricPageLevelThreePoints;
+    private WebElement createRubricPageLevelThreePoints;
 
     @Name("Create rubric page - Level 4 Points")
     @FindBy(xpath = ".//app-rubric-matrix//div[5]//div[2]/div/div[2]//div/fieldset")
-    public WebElement createRubricPageLevelFourPoints;
+    private WebElement createRubricPageLevelFourPoints;
 
     @Name("Create rubric page - Level 5 Points")
     @FindBy(xpath = ".//app-rubric-matrix//div[6]//div[2]/div/div[2]//div/fieldset")
-    public WebElement createRubricPageLevelFivePoints;
+    private WebElement createRubricPageLevelFivePoints;
 
     @Name("Create rubric page - Criteria 1 Description")
     @FindBy(xpath = ".//create-rubric//app-rubric-matrix//div[2]/div[2]//app-header-row-cell//div[2]/div/div/div")
-    public WebElement createRubricPageCriteriaOneDescription;
+    private WebElement createRubricPageCriteriaOneDescription;
 
     @Name("Create rubric page - Criteria 2 Description")
     @FindBy(xpath = ".//create-rubric//app-rubric-matrix//div[2]/div[3]//app-header-row-cell//div[2]/div/div/div")
-    public WebElement createRubricPageCriteriaTwoDescription;
+    private WebElement createRubricPageCriteriaTwoDescription;
 
     @Name("Create rubric page - Criteria 3 Description")
     @FindBy(xpath = ".//create-rubric//app-rubric-matrix//div[2]/div[4]//app-header-row-cell//div[2]/div/div/div")
-    public WebElement createRubricPageCriteriaThreeDescription;
+    private WebElement createRubricPageCriteriaThreeDescription;
 
     @Name("Create rubric page - Criteria 4 Description")
     @FindBy(xpath = ".//create-rubric//app-rubric-matrix//div[2]/div[5]//app-header-row-cell//div[2]/div/div/div")
-    public WebElement createRubricPageCriteriaFourDescription;
+    private WebElement createRubricPageCriteriaFourDescription;
 
     @Name("Create rubric page - Criteria 5 Description")
     @FindBy(xpath = ".//create-rubric//app-rubric-matrix//div[2]/div[6]//app-header-row-cell//div[2]/div/div/div")
-    public WebElement createRubricPageCriteriaFiveDescription;
+    private WebElement createRubricPageCriteriaFiveDescription;
 
     @Name("Create rubric page - Rubric Descriptions")
     @FindBy(xpath = ".//textarea[@formcontrolname='description']")
@@ -199,7 +199,7 @@ public class RubricsPage {
 
     @Name("First Rubric Record")
     @FindBy(xpath = ".//rubrics//tbody/tr[1]/td[2]//table-cell-view-mode/div")
-    public WebElement firstRubricRecord;
+    private WebElement firstRubricRecord;
 
 
     @Name("Rubric names of Inactive elements")
@@ -216,20 +216,20 @@ public class RubricsPage {
 
     @Name("Confirm Delete Operation")
     @FindBy(xpath = ".//div/ng2-smart-table//tbody/tr[2]/td[5]//app-alert//a[contains(text(),'Delete')]")
-    public WebElement confirmDeleteOperation;
+    private WebElement confirmDeleteOperation;
 
     @Name("Cancel Delete Operation")
-    @FindBy(xpath = ".//div/ng2-smart-table//tbody/tr[2]/td[5]//app-alert//a[contains(text(),'Cancel')]")
-    public WebElement cancelDeleteOperation;
+    @FindBy(xpath = ".//tr[2]/td[5]//app-alert//a[contains(text(),\"Cancel\")]")
+    private WebElement cancelDeleteOperation;
 
 
     @Name("Inactive Delete Rubric Button")
     @FindBy(xpath = ".//options-view-component/app-options/div//div/img[@src=\"assets/img/delete-inactive.png\"]")
-    public WebElement inactiveDeleteRubricButton;
+    private WebElement inactiveDeleteRubricButton;
 
     @Name("Inactive Edit Rubric Button")
     @FindBy(xpath = ".//options-view-component/app-options/div//div/img[@src=\"assets/svg/edit_default.svg\"]")
-    public WebElement inactiveEditRubricButton;
+    private WebElement inactiveEditRubricButton;
 
     @Name("List Of Displayed Rubric Names")
     @FindBy(xpath = ".//tbody/tr/td//ancestor::*/td[2]//table-cell-view-mode/div/div")

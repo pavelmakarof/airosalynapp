@@ -20,7 +20,7 @@ public class TestsPage {
 
     @Name("Tests Page Title")
     @FindBy(css = "[routerlink=\"\\/home\\/test\\/list\\/active\"]")
-    public WebElement testsPageTitle;
+    private WebElement testsPageTitle;
 
     public WebElement getTestsPageTitle(){return testsPageTitle;}
 }

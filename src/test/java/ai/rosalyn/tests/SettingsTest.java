@@ -30,7 +30,7 @@ public class SettingsTest extends BasicBeforeAfter {
         tagsPage = new TagsPage(driver);
         commonSteps = new CommonSteps(driver);
         commonSteps.goToDashboardPage(signInPage);
-        commonSteps.assertEquals(orgName(),dashboardPage.orgname);
+        commonSteps.assertEquals(orgName(),dashboardPage.getOrgname());
     }
 
     @Test

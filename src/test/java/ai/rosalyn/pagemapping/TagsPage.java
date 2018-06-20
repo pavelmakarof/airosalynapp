@@ -20,83 +20,83 @@ public class TagsPage {
 
     @Name("Tags title")
     @FindBy(xpath = ".//manage-tags/div/div/div[1]/h1")
-    public WebElement tagsTitle;
+    private WebElement tagsTitle;
 
     @Name("Counter of displayed tags")
     @FindBy(xpath = ".//manage-tags/div/div/div[1]/span")
-    public WebElement counterOfDisplayingTags;
+    private WebElement counterOfDisplayingTags;
 
     @Name("Counter of selected tags")
     @FindBy(xpath = ".//manage-tags/div/div/div[1]/span[2]")
-    public WebElement counterOfSelectedTags;
+    private WebElement counterOfSelectedTags;
 
     @Name("New Tag button")
     @FindBy(xpath = ".//*[@id='newTag']")
-    public WebElement newTagButton;
+    private WebElement newTagButton;
 
     @Name("Select First Checkbox")
     @FindBy(xpath = ".//manage-tags/div/ng2-smart-table/table/tbody/tr[1]/td[1]/label")
-    public WebElement selectFirstCheckbox;
+    private WebElement selectFirstCheckbox;
 
     @Name("Select First Checkbox")
     @FindBy(xpath = ".//manage-tags/div/ng2-smart-table/table/tbody/tr[2]/td[1]/label")
-    public WebElement selectSecondCheckbox;
+    private WebElement selectSecondCheckbox;
 
     @Name("Select all Checkbox")
     @FindBy(xpath = ".//manage-tags//thead//label")
-    public WebElement selectAllCheckbox;
+    private WebElement selectAllCheckbox;
 
     @Name("Search Field")
     @FindBy(css = ".input.ng-untouched.ng-pristine.ng-valid")
-    public WebElement searchTagField;
+    private WebElement searchTagField;
 
     @Name("New Tag Name input")
     @FindBy(xpath = ".//input-editor/fieldset/input[@name='name']")
-    public WebElement newTagNameInput;
+    private WebElement newTagNameInput;
 
     @Name("Validation message")
     @FindBy(xpath = ".//app-control-error-message/div[@class='error-color ng-star-inserted']")
-    public WebElement tagNameValidationMessage;
+    private WebElement tagNameValidationMessage;
 
     @Name("Cancel New Name Creation button")
     @FindBy(xpath = ".//ng2-st-actions/a/span[@aria-label='Cancel']/img")
-    public WebElement cancelNewNameCreationButton;
+    private WebElement cancelNewNameCreationButton;
 
     @Name("Apply New Name Creation button")
     @FindBy(xpath = ".//ng2-st-actions[@class='create-cancel-right']/button/span/img")
-    public WebElement applyNewNameCreationButton;
+    private WebElement applyNewNameCreationButton;
 
     @Name("Active Update Tag Name Button")
     @FindBy(xpath = ".//ng2-st-tbody-create-cancel[@class='create-cancel-right']//button/span[@aria-label=\"Update\"]/img")
-    public WebElement updateTagNameButton;
+    private WebElement updateTagNameButton;
 
     @Name("Inactive Update Tag Name Button")
     @FindBy(xpath = ".//ng2-st-tbody-create-cancel[@class='create-cancel-right']//button/span[@aria-label=\"Update\"]/img[@src=\"assets/img/ok-inactive.svg\"]")
-    public WebElement inactiveUpdateTagNameButton;
+    private WebElement inactiveUpdateTagNameButton;
 
     @Name("Clear Filters Button")
     @FindBy(xpath = ".//manage-tags[@class='ng-star-inserted']//span[.='clear filters']")
-    public WebElement clearFiltersButton;
+    private WebElement clearFiltersButton;
 
     @Name("Erase search field - button cross")
     @FindBy(xpath = ".//img[@class='clear-input-img']")
-    public WebElement clearInputButton;
+    private WebElement clearInputButton;
 
     @Name("First Tag Record")
     @FindBy(xpath = ".//tr[1]//div[@class='ng-star-inserted']")
-    public WebElement firstTagRecord;
+    private WebElement firstTagRecord;
 
     @Name("Delete Tag Button")
     @FindBy(xpath = ".//tbody[@class='scrollbar_cus scrollbar_cus_mh80']//span[@aria-label='Delete']/img")
-    public WebElement deleteTagButton;
+    private WebElement deleteTagButton;
 
     @Name("Edit Tag Button")
     @FindBy(xpath = ".//tbody[@class='scrollbar_cus scrollbar_cus_mh80']//span[@aria-label='Edit']/img")
-    public WebElement editTagButton;
+    private WebElement editTagButton;
 
     @Name("No Search Results On Tags Page")
     @FindBy(xpath = ".//manage-tags/div/ng2-smart-table/table/tbody/tr/td")
-    public WebElement noSearchResultsOnTagsPage;
+    private WebElement noSearchResultsOnTagsPage;
 
     public WebElement getTagsTitle() {
         return tagsTitle;

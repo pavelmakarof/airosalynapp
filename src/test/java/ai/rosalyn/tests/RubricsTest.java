@@ -43,7 +43,7 @@ public class RubricsTest extends BasicBeforeAfter {
         commonThings = new CommonThings(driver);
         commonSteps.goToDashboardPage(signInPage);
         commonSteps.shouldNotSee(commonThings.getLoader());
-        commonSteps.assertEquals(orgName(), dashboardPage.orgname);
+        commonSteps.assertEquals(orgName(), dashboardPage.getOrgname());
         commonSteps.move(dashboardPage.getAvatarDropdown());
         commonSteps.click(dashboardPage.getOrganizationSettingsButton());
         commonSteps.shouldNotSee(commonThings.getLoader());
@@ -67,13 +67,14 @@ public class RubricsTest extends BasicBeforeAfter {
         }
         commonSteps.click(rubricsPage.getCreateRubricPageSaveButton());
         commonSteps.shouldSee(rubricsPage.getCreateRubricPageValidationMessageEmptyTableFields());
-        int totalPointsForRubric = 0;
+        Integer totalPointsForRubric = 0;
         ArrayList possiblePointsArray = new ArrayList();
         for (WebElement levelPoint : rubricsPage.getCreateRubricPageLevelPoints()) {
             int tempPoints = (int) (Math.random() * 10);
             possiblePointsArray.add(tempPoints);
             commonSteps.click(levelPoint);
-            commonSteps.textInput(levelPoint, String.valueOf((int) (Math.random() * 10)));
+            commonSteps.textInput(levelPoint, String.valueOf(tempPoints));
+            System.out.println(possiblePointsArray);
             totalPointsForRubric = 10 * Integer.valueOf(Collections.max(possiblePointsArray).toString());
         }
 
@@ -94,7 +95,11 @@ public class RubricsTest extends BasicBeforeAfter {
         commonSteps.click(commonThings.getNotification());
         commonSteps.assertTrue("Status of just created rubric is not inactive", "Inactive".equals(commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getListOfInactiveRubrics(), 0))));
         commonSteps.click(rubricsPage.getFirstRubricRecord());
-        commonSteps.assertTrue("Total points is incorrect", totalPointsForRubric == Integer.valueOf(commonSteps.getText(rubricsPage.getCreateRubricPageNumberPossiblePoints())));
+        System.out.println(editRubricTitle());
+        System.out.println(commonSteps.getText(rubricsPage.getCreateRubricPageTitle()));
+        commonSteps.assertTrue("The title \"Edit Rubric\" is absent on current page",editRubricTitle().equals(commonSteps.getText(rubricsPage.getCreateRubricPageTitle())));
+        Integer temp = Integer.valueOf(commonSteps.getText(rubricsPage.getCreateRubricPageNumberPossiblePoints()));
+        commonSteps.assertTrue("Total points is incorrect" + "totalPointsForRubric:" + totalPointsForRubric + "RealPoints" + temp, totalPointsForRubric == temp);
         commonSteps.shouldSee(rubricsPage.getRubricViewLastCell());
         Thread.sleep(5000);
     }
@@ -165,6 +170,8 @@ public class RubricsTest extends BasicBeforeAfter {
         String tempRubricName = commonSteps.getText(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.hover(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.click(commonThings.getDeleteRecordButton());
+ Thread.sleep(2000);
+ commonSteps.hover(rubricsPage.getCancelDeleteOperation());
         commonSteps.click(rubricsPage.getCancelDeleteOperation());
         commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.textInput(commonThings.getSearchNameField(), tempRubricName);
@@ -178,7 +185,7 @@ public class RubricsTest extends BasicBeforeAfter {
         commonSteps.hover(commonSteps.getElememtFromArray(rubricsPage.getRubricNamesOfInactiveElements(), 0));
         commonSteps.click(commonThings.getDuplicateRecordButton());
         Thread.sleep(4000);
-        commonSteps.assertEquals("Copy of " + tempRubricName + " 1", rubricsPage.getFirstRubricRecord());
+        commonSteps.assertTrue("Incorrect name of duplicated rubric", commonSteps.getText(rubricsPage.getFirstRubricRecord()).contains("Copy of " + tempRubricName));
     }
 
     @Test

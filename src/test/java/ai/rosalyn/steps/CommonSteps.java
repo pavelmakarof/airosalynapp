@@ -52,8 +52,9 @@ public class CommonSteps {
     }
 
     @Step("Webelement should not be visible")
-    public void shouldNotSee(WebElement element) {
+    public void shouldNotSee(WebElement element) throws InterruptedException {
         assertThat(element + "is displayed", element, should(not(isDisplayed())).whileWaitingUntil(timeoutHasExpired(SECONDS.toMillis(DEFAULT_WAITING_TIMEOUT))));
+        Thread.sleep(1500);
     }
 
     @Step("Navigate ro url")
@@ -98,7 +99,7 @@ public class CommonSteps {
         action.click().build().perform();
     }
 
-    @Step("Hover and click on element")
+    @Step("Hover on element")
     public void hover(WebElement element) {
         Actions action = new Actions(driver);
         shouldSee(element);

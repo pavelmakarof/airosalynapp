@@ -17,7 +17,7 @@ public class ProctoringPage {
     }
 
     @FindBy(css = ".lh-title.mb2")
-    public WebElement proctoringPageTitle;
+    private WebElement proctoringPageTitle;
 
     public WebElement getProctoringPageTitle(){return proctoringPageTitle;}
 }

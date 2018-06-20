@@ -3,7 +3,6 @@ package ai.rosalyn.tests;
 import ai.rosalyn.utils.BasicBeforeAfter;
 import ai.rosalyn.pagemapping.*;
 import ai.rosalyn.steps.*;
-import ai.rosalyn.utils.*;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,8 +50,8 @@ public class WithoutLoginTest extends BasicBeforeAfter {
         writer.close();
         commonSteps.textInput(signInPage.getUserpass(),userPass());
         commonSteps.click(signInPage.getSigninbutton());
-        commonSteps.assertEquals(neworg,dashboardPage.orgname);
-        commonSteps.assertEquals(trialCounter(),dashboardPage.trialCounter);
-        commonSteps.shouldSee(dashboardPage.getEmailNotVerified());
+        commonSteps.assertEquals(neworg,dashboardPage.getOrgname());
+        commonSteps.assertEquals(trialCounter(),dashboardPage.getTrialCounter());
+        commonSteps.shouldSee(dashboardPage.getEmailNotVerifiedBanner());
     }
 }

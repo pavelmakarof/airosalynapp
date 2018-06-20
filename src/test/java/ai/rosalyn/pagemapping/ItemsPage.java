@@ -18,7 +18,7 @@ public class ItemsPage {
         this.driver = driver;
     }
     @FindBy(css = ".lh-title.mb2")
-    public WebElement itemsPageTitle;
+    private WebElement itemsPageTitle;
 
     public WebElement getItemsPageTitle() {
         return itemsPageTitle;

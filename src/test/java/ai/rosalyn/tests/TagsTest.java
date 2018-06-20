@@ -22,7 +22,7 @@ public class TagsTest extends BasicBeforeAfter {
 
 
     @Before
-    public void setupClass() {
+    public void setupClass() throws InterruptedException {
         signInPage = new SignInPage(driver);
         dashboardPage = new DashboardPage(driver);
         organizationSettings = new OrganizationSettings(driver);
@@ -32,8 +32,8 @@ public class TagsTest extends BasicBeforeAfter {
         commonSteps = new CommonSteps(driver);
         commonThings = new CommonThings(driver);
         commonSteps.goToDashboardPage(signInPage);
-        commonSteps.assertEquals(orgName(),dashboardPage.orgname);
-        //commonSteps.shouldNotSee(commonThings.getLoader());
+        commonSteps.assertEquals(orgName(),dashboardPage.getOrgname());
+        commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.move(dashboardPage.getAvatarDropdown());
         commonSteps.click(dashboardPage.getOrganizationSettingsButton());
         commonSteps.shouldNotSee(commonThings.getLoader());
@@ -147,17 +147,17 @@ public class TagsTest extends BasicBeforeAfter {
         commonSteps.assertEquals(tempFirstTagRecord,tagsPage.getFirstTagRecord());
     }
 
-//    @Test
-//    @DisplayName("Check That Admin Can Delete Several Tags")
-//    public void adminCanDeleteSeveralTags011() throws InterruptedException{
-//        String tempFirstTagRecord1 = commonSteps.getText(tagsPage.getFirstTagRecord());
-//        commonSteps.move(tagsPage.getSelectFirstCheckbox());
-//        commonSteps.move(tagsPage.getSelectSecondCheckbox());
-//        commonSteps.click(tagsPage.getThreeDotsButton());
-//        commonSteps.click(tagsPage.getDeleteAllTagsButton());
-//        commonSteps.click(tagsPage.getConfirmDeleteOperation());
-//        commonSteps.assertNotEquals(tempFirstTagRecord1,tagsPage.getFirstTagRecord());
-//    }
+    @Test
+    @DisplayName("Check That Admin Can Delete Several Tags")
+    public void adminCanDeleteSeveralTags011() throws InterruptedException{
+        String tempFirstTagRecord1 = commonSteps.getText(tagsPage.getFirstTagRecord());
+        commonSteps.move(tagsPage.getSelectFirstCheckbox());
+        commonSteps.move(tagsPage.getSelectSecondCheckbox());
+        commonSteps.click(commonThings.getThreeDotsButton());
+        commonSteps.click(commonThings.getDeleteSelectedElementsButton());
+        commonSteps.click(commonThings.getModalConfirmButton());
+        commonSteps.assertNotEquals(tempFirstTagRecord1,tagsPage.getFirstTagRecord());
+    }
 
     @Test
     @DisplayName("Admin can cancel search by Clear filters button")
@@ -180,5 +180,4 @@ public class TagsTest extends BasicBeforeAfter {
         commonSteps.shouldNotSee(commonThings.getLoader());
         commonSteps.assertEquals(tempFirstTagName,tagsPage.getFirstTagRecord());
     }
-
 }

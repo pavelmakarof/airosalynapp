@@ -17,10 +17,10 @@ public class GeneralPage {
     }
 
     @FindBy(xpath = ".//*[@id='name']")
-    public WebElement supportEmailInput;
+    private WebElement supportEmailInput;
 
     @FindBy(xpath = ".//app-general-email/div/form/button")
-    public WebElement saveSupportEmailButton;
+    private WebElement saveSupportEmailButton;
 
     public WebElement getSupportEmailInput() {
         return supportEmailInput;

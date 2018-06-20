@@ -57,7 +57,7 @@ public class AutorizationTest extends BasicBeforeAfter {
     public void testOrganizationSettings002() throws InterruptedException {
         commonSteps.move(dashboardPage.getAvatarDropdown());
         commonSteps.click(dashboardPage.getOrganizationSettingsButton());
-        commonSteps.assertEquals(organizationSettingsTitle(),organizationSettings.organizationSettingsTitle);
+        commonSteps.assertEquals(organizationSettingsTitle(),organizationSettings.getOrganizationSettingsTitle());
     }
 
     @Test
@@ -90,14 +90,6 @@ public class AutorizationTest extends BasicBeforeAfter {
         commonSteps.click(dashboardPage.getCancelLogout());
         commonSteps.assertEquals(orgName(),dashboardPage.getOrgname());
     }
-
-    /*
-    @Test
-    @DisplayName("Check that blue banner Email not verified is displayed for NON verified emails")
-    public void testIsEmailVerified006() throws InterruptedException {
-    commonSteps.assertTrue("Blue banner is not displayed", dashboardPage.isEmailNotVerifiedBannerDisplayed()==false);
-    }
-*/
 
     @Test
     @DisplayName("Check that by default menu is hiddden")
