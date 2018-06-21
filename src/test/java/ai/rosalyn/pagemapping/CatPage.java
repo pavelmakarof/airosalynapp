@@ -80,5 +80,68 @@ public class CatPage {
     @FindBy(xpath = ".//button[contains(text(),\"Show Preview\")]")
     private List<WebElement> newCatShowCertificatePreview;
 
+    public WebElement getCatTitle() {
+        return catTitle;
+    }
+
+    public WebElement getCounterOfDisplayingCats() {
+        return counterOfDisplayingCats;
+    }
+
+    public WebElement getNewCatButton() {
+        return newCatButton;
+    }
+
+    public List<WebElement> getListOfInactiveCats() {
+        return listOfInactiveCats;
+    }
+
+    public List<WebElement> getCatNamesOfInactiveElements() {
+        return catNamesOfInactiveElements;
+    }
+
+    public List<WebElement> getRubricNamesOfActiveElements() {
+        return rubricNamesOfActiveElements;
+    }
+
+    public WebElement getNewCatName() {
+        return newCatName;
+    }
+
+    public WebElement getNewCatDescription() {
+        return newCatDescription;
+    }
+
+    public WebElement getNewCatMaximumRawScore() {
+        return newCatMaximumRawScore;
+    }
+
+    public WebElement getNewCatAddTierButton() {
+        return newCatAddTierButton;
+    }
+
+    public List<WebElement> getNewCatTierName() {
+        return newCatTierName;
+    }
+
+    public List<WebElement> getNewCatTierStaringRawScore() {
+        return newCatTierStaringRawScore;
+    }
+
+    public List<WebElement> getNewCatTierEndingRawScore() {
+        return newCatTierEndingRawScore;
+    }
+
+    public List<WebElement> getNewCatTierDescription() {
+        return newCatTierDescription;
+    }
+
+    public List<WebElement> getNewCatTierCheckboxSelectPassingTier() {
+        return newCatTierCheckboxSelectPassingTier;
+    }
+
+    public List<WebElement> getNewCatShowCertificatePreview() {
+        return newCatShowCertificatePreview;
+    }
 
 }

@@ -32,7 +32,7 @@ public class OrganizationSettings {
     private WebElement rubricsButton;
 
     @Name("Button \"Custom Scoring Scale\"")
-    @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Rubrics\"]")
+    @FindBy(xpath = ".//app-horizontal-navbar/nav/ul//a/span[text() = \"Custom Scoring Scale\"]")
     private WebElement catButton;
 
     public WebElement getOrganizationSettingsTitle() {
