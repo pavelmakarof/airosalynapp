@@ -137,7 +137,7 @@ public class CommonSteps {
 
     @Step
     @DisplayName("Is element enabled")
-    public boolean isEnabledSubmitNewSubOrgButton(WebElement element){
+    public boolean isButtonEnabled(WebElement element){
         return element.isEnabled();
     }
 

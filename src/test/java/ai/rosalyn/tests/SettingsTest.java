@@ -97,7 +97,7 @@ public class SettingsTest extends BasicBeforeAfter {
         commonSteps.click(subOrganizationPage.getNewSubOrgName());
         commonSteps.textInput(subOrganizationPage.getNewSubOrgDescr(),thirtyThreeSymbolsMethod());
         commonSteps.assertEquals(validationMessageSubOrgNameIsRequired(),subOrganizationPage.getValidationMessageNameIsRequired());
-        commonSteps.assertFalse("The Submit button is enabled", commonSteps.isEnabledSubmitNewSubOrgButton(subOrganizationPage.getSubmitNewSubOrgButton()));
+        commonSteps.assertFalse("The Submit button is enabled", commonSteps.isButtonEnabled(subOrganizationPage.getSubmitNewSubOrgButton()));
     }
 
     @Test
@@ -112,7 +112,7 @@ public class SettingsTest extends BasicBeforeAfter {
         commonSteps.textInput(subOrganizationPage.getNewSubOrgDescr(),oneHundredTwentyFiveSymbolsMethod());
         commonSteps.assertEquals(validationMessageSubOrgNameIsLong(),subOrganizationPage.getValidationMessageNameIsLong());
         commonSteps.assertEquals(validationMessageSubOrgDescriptionIsLong(),subOrganizationPage.getValidationMessageDescriptionIsLong());
-        commonSteps.assertFalse("The Submit button is enabled", commonSteps.isEnabledSubmitNewSubOrgButton(subOrganizationPage.getSubmitNewSubOrgButton()));
+        commonSteps.assertFalse("The Submit button is enabled", commonSteps.isButtonEnabled(subOrganizationPage.getSubmitNewSubOrgButton()));
     }
 
     @Test

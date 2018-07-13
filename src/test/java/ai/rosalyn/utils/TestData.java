@@ -150,4 +150,10 @@ public class TestData {
         String youCannotDeleteRubricThatIsActivelyAssignedVal = "Oops! You cannot delete a rubric that is actively assigned.";
         return youCannotDeleteRubricThatIsActivelyAssignedVal;
     }
+
+    public static String catNeedsMaximumRawScore() {
+        String catNeedsMaximumRawScoreVal = "This Custom Scoring Scale needs a maximum raw score.";
+        return catNeedsMaximumRawScoreVal;
+    }
+
 }

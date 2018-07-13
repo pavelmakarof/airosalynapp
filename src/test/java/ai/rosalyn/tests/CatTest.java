@@ -50,14 +50,57 @@ public class CatTest extends BasicBeforeAfter {
         commonSteps.textInput(catPage.getNewCatName(), tempCatName);
         String tempCatDescript = oneHundredTwentyFourSymbolsMethod();
         commonSteps.textInput(catPage.getNewCatDescription(), tempCatDescript);
-        int tempMaxRawScore = (int) (Math.random() * 10)+200;
+        commonSteps.assertFalse("The button is enabled", commonSteps.isButtonEnabled(catPage.getNewCatAddTierButton()));
+        int tempMaxRawScore = (int) (Math.random() * 10) + 200;
         commonSteps.textInput(catPage.getNewCatMaximumRawScore(), String.valueOf(tempMaxRawScore));
         commonSteps.click(catPage.getNewCatAddTierButton());
         String tempCatTierName = "CAT Tier Name - First Tier - Best" + randomValueMethod();
         commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierName(), 0), tempCatTierName);
-        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 0), String.valueOf(tempMaxRawScore-50));
-        commonSteps.assertTrue("Ending RAW score in first tier is not correct", commonSteps.getAttributeValue(commonSteps.getElememtFromArray(catPage.getNewCatTierEndingRawScore(),0),"valueAsNumber").equals(String.valueOf(tempMaxRawScore)));
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 0), String.valueOf(tempMaxRawScore - 50));
+        commonSteps.assertTrue("Ending RAW score in first tier is not correct", commonSteps.getAttributeValue(commonSteps.getElememtFromArray(catPage.getNewCatTierEndingRawScore(), 0), "valueAsNumber").equals(String.valueOf(tempMaxRawScore)));
         commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierDescription(), 0), "Description of " + tempCatTierName);
-
+        commonSteps.click(catPage.getNewCatAddTierButton());
+        String tempCatTierName2 = "CAT Tier Name - Second Tier - Good" + randomValueMethod();
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierName(), 1), tempCatTierName2);
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 1), String.valueOf(tempMaxRawScore - 100));
+        commonSteps.assertTrue("Ending RAW score in first tier is not correct", commonSteps.getAttributeValue(commonSteps.getElememtFromArray(catPage.getNewCatTierEndingRawScore(), 1), "valueAsNumber").equals(String.valueOf(tempMaxRawScore - 51)));
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierDescription(), 1), "Description of " + tempCatTierName2);
+        commonSteps.click(catPage.getNewCatAddTierButton());
+        String tempCatTierName3 = "CAT Tier Name - Third Tier - Middle" + randomValueMethod();
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierName(), 2), tempCatTierName3);
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 2), String.valueOf(tempMaxRawScore - 150));
+        commonSteps.assertTrue("Ending RAW score in first tier is not correct", commonSteps.getAttributeValue(commonSteps.getElememtFromArray(catPage.getNewCatTierEndingRawScore(), 2), "valueAsNumber").equals(String.valueOf(tempMaxRawScore - 101)));
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierDescription(), 2), "Description of " + tempCatTierName3);
+        commonSteps.click(catPage.getNewCatAddTierButton());
+        String tempCatTierName4 = "CAT Tier Name - Four Tier - Bad" + randomValueMethod();
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierName(), 3), tempCatTierName4);
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 3), "2");
+        commonSteps.assertTrue("Ending RAW score in first tier is not correct", commonSteps.getAttributeValue(commonSteps.getElememtFromArray(catPage.getNewCatTierEndingRawScore(), 3), "valueAsNumber").equals(String.valueOf(tempMaxRawScore - 151)));
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierDescription(), 3), "Description of " + tempCatTierName4);
+        commonSteps.click(catPage.getNewCatAddTierButton());
+        commonSteps.click(catPage.getNewCatDeleteTierButton());
+        commonSteps.textInput(commonSteps.getElememtFromArray(catPage.getNewCatTierStaringRawScore(), 3), "0");
+        commonSteps.click(catPage.getNewCatAddTierButton());
+        commonSteps.click(catPage.getOkButtonInModal());
+        commonSteps.click(catPage.getBoldButtonInWysiwyg());
+        commonSteps.textInput(catPage.getWysiwyg(),"Examinee name:" + "{{NAME}}\n" + "Score  tier:" + "{{SCORE_TIER}}\n" + "Score  tier description:" + "{{SCORE_TIER_DESCRIPTION}}\n" + "RAW_SCORE:" + "{{RAW_SCORE}}\n"+ "DATE:"+ "{{DATE}}");
+        commonSteps.click(commonThings.getSaveButton());
+        commonSteps.click(commonThings.getModalCrossButton());
+        commonSteps.click(commonSteps.getElememtFromArray(catPage.getNewCatTierCheckboxSelectPassingTier(),2));
+        commonSteps.click(commonThings.getSaveButton());
+        commonSteps.shouldNotSee(commonThings.getLoader());
+        commonSteps.assertEquals(tempCatName, catPage.getFirstCatRecord());
     }
-}
+
+    @Test
+    @DisplayName("CAT name should be uniqueness")
+    public void catNameShouldBeUniqueness() throws InterruptedException {
+        String tempCatName = commonSteps.getText(catPage.getFirstCatRecord());
+        commonSteps.click(catPage.getNewCatButton());
+        commonSteps.textInput(catPage.getNewCatName(), tempCatName);
+        commonSteps.textInput(catPage.getNewCatDescription(),oneHundredTwentyFiveSymbolsMethod());
+        commonSteps.click(catPage.getNewCatMaximumRawScore());
+        commonSteps.click(catPage.getWysiwyg());
+        commonSteps.assertEquals(,);
+
+    }}

@@ -28,6 +28,10 @@ public class CatPage {
     @FindBy(xpath = ".//app-cat//a[contains(@href,\"/home/cat/manage\")]")
     private WebElement newCatButton;
 
+    @Name("First CAT Record")
+    @FindBy(xpath = ".//tbody/tr[1]/td[1]/ng2-smart-table-cell/table-cell-view-mode/div/div")
+    private WebElement firstCatRecord;
+
     @Name("List Of Inactive Cats")
     @FindBy(xpath = ".//app-cat//tbody//span[contains(text(),'Inactive')]")
     private List<WebElement> listOfInactiveCats;
@@ -36,7 +40,7 @@ public class CatPage {
     @FindBy(xpath = ".//tbody/tr/td//span[text()='Inactive']/ancestor::*/td[1]//div/div")
     private List<WebElement> catNamesOfInactiveElements;
 
-    @Name("Rubric names of Active elements")
+    @Name("CAT names of Active elements")
     @FindBy(xpath = ".//tbody/tr/td//span[text()='Active']/ancestor::*/td[1]//div/div")
     private List<WebElement> rubricNamesOfActiveElements;
 
@@ -76,9 +80,34 @@ public class CatPage {
     @FindBy(xpath = ".//label[contains(text(),\"Make this tier the passing score\")]")
     private List<WebElement> newCatTierCheckboxSelectPassingTier;
 
+    @Name("New CAT - Delete Tier Button")
+    @FindBy(xpath = ".//app-card-container//div/img[contains(@alt,\"remove\")]")
+    private WebElement newCatDeleteTierButton;
+
+
     @Name("New CAT - Show Certificate Preview")
     @FindBy(xpath = ".//button[contains(text(),\"Show Preview\")]")
     private List<WebElement> newCatShowCertificatePreview;
+
+    @Name("New CAT - ok button in modal window")
+    @FindBy(xpath = "/html//div[@id='idAlert']/div[@class='vmiddle-wrap']/div/div//a[contains(@data-remodal-action,\"confirm\") and contains(text(),\"Ok\")]")
+    private WebElement okButtonInModal;
+
+    @Name("New CAT - WYSIWYG - bold")
+    @FindBy(xpath = "//*[@id=\"toolbar\"]//button[contains(@class,'ql-bold')]")
+    private WebElement boldButtonInWysiwyg;
+
+    @Name("WYSIWYG")
+    @FindBy(xpath = "//div[@id='editor']/div[@class='ql-editor']")
+    private WebElement wysiwyg;
+
+    public WebElement getWysiwyg(){
+        return wysiwyg;
+    }
+
+    public WebElement getBoldButtonInWysiwyg() {
+        return boldButtonInWysiwyg;
+    }
 
     public WebElement getCatTitle() {
         return catTitle;
@@ -90,6 +119,10 @@ public class CatPage {
 
     public WebElement getNewCatButton() {
         return newCatButton;
+    }
+
+    public WebElement getFirstCatRecord() {
+        return firstCatRecord;
     }
 
     public List<WebElement> getListOfInactiveCats() {
@@ -140,8 +173,17 @@ public class CatPage {
         return newCatTierCheckboxSelectPassingTier;
     }
 
+
+    public WebElement getNewCatDeleteTierButton() {
+        return newCatDeleteTierButton;
+    }
+
     public List<WebElement> getNewCatShowCertificatePreview() {
         return newCatShowCertificatePreview;
+    }
+
+    public WebElement getOkButtonInModal() {
+        return okButtonInModal;
     }
 
 }

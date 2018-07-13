@@ -37,7 +37,11 @@ public class CommonThings {
     @FindBy(xpath = ".//section//*[@id='idAlert']//a[@data-remodal-action=\"confirm\"]")
     private WebElement modalConfirmButton;
 
-    @Name("Delete Record Button")
+    @Name("Cross or Close button")
+    @FindBy(xpath = "//*[@id=\"userModal\"]/div/div/div/a[contains(@data-remodal-action,'close')]")
+    private WebElement modalCrossButton;
+
+     @Name("Delete Record Button")
     @FindBy(xpath = ".//*[@aria-label='Delete']//img")
     private WebElement deleteRecordButton;
 
@@ -103,6 +107,10 @@ public class CommonThings {
 
     public WebElement getModalConfirmButton() {
         return modalConfirmButton;
+    }
+
+    public WebElement getModalCrossButton() {
+        return modalCrossButton;
     }
 
     public WebElement getDeleteRecordButton() {
